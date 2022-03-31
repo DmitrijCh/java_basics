@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+
 import main.model.Book;
 import main.model.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,8 @@ public class DefaultController {
         }
 
         model.addAttribute("books", books)
-            .addAttribute("booksCount", books.size())
-            .addAttribute("someParameter", someParameter);
+                .addAttribute("booksCount", books.size())
+                .addAttribute("someParameter", someParameter);
 
         return "index";
     }

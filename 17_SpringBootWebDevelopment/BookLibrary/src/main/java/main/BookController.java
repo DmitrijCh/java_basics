@@ -3,6 +3,7 @@ package main;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
 import main.model.Book;
 import main.model.BookRepository;
 import org.springframework.http.HttpStatus;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class BookController {
-
     private final BookRepository bookRepository;
 
     // Рекомендуемый вариант внедрения зависимости:

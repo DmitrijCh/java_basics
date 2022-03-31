@@ -38,5 +38,4 @@ public class ToDoListController {
     public void deleteAll() {
         taskStorage.deleteAll();
     }
-
 }

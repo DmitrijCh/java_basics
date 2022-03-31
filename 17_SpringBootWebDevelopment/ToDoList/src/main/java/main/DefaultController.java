@@ -1,6 +1,5 @@
 package main;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -23,7 +22,7 @@ public class DefaultController {
 
         Iterable<Task> taskIterable = taskRepository.findAll();
         ArrayList<Task> tasks = new ArrayList<>();
-        for (Task task :  taskIterable) {
+        for (Task task : taskIterable) {
             tasks.add(task);
         }
         model.addAttribute("tasks", tasks);

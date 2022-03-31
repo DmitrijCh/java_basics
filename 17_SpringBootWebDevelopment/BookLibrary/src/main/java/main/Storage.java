@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import main.model.Book;
 
 public class Storage {
@@ -12,8 +13,8 @@ public class Storage {
     private static final Map<Integer, Book> books = new HashMap<>();
 
     public static List<Book> getAllBooks() {
-        ArrayList<Book> booksList = new ArrayList<Book>(books.values());
-        return booksList;
+        ArrayList<Book> books = new ArrayList<>(Storage.books.values());
+        return books;
     }
 
     public static int addBook(Book book) {
