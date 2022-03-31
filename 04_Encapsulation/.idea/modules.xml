@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01_Elevator/01_Elevator.iml" filepath="$PROJECT_DIR$/01_Elevator/01_Elevator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02_Pojo/02_Pojo.iml" filepath="$PROJECT_DIR$/02_Pojo/02_Pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03_Immutable/03_Immutable.iml" filepath="$PROJECT_DIR$/03_Immutable/03_Immutable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04_Copy/04_Copy.iml" filepath="$PROJECT_DIR$/04_Copy/04_Copy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/04_Encapsulation.iml" filepath="$PROJECT_DIR$/.idea/04_Encapsulation.iml" />
+    </modules>
+  </component>
+</project>
