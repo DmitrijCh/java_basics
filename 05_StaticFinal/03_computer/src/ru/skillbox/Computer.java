@@ -78,12 +78,30 @@ public class Computer {
     }
 
     public String toString() {
-        return String.format("\tComputer name: %s\n\tComputer vendor: %s\n\tProcessor:\n\t\tFrequency: %s"
-                        + "\n\t\tCount of cores: %s\n\t\tProcessor vendor: %s\n\t\tWeight: %s\n\tRAM:\n\t\tRAM Type: %s"
-                        + "\n\t\tSize: %s\n\t\tWeight: %s\n\tStorage devise:\n\t\tDrive type: %s"
-                        + "\n\t\tStorage capacity: %s\n\t\tWeight: %s\n\tScreen:\n\t\tDiagonal: %s"
-                        + "\n\t\tScreen type: %s\n\t\tWeight: %s\n\tKeyboard:\n\t\tKeyboard type: %s"
-                        + "\n\t\tIs backlight: %s\n\t\tWeight: %s",
+        return String.format("""
+                        \tComputer name: %s
+                        \tComputer vendor: %s
+                        \tProcessor:
+                        \t\tFrequency: %s
+                        \t\tCount of cores: %s
+                        \t\tProcessor vendor: %s
+                        \t\tWeight: %s
+                        \tRAM:
+                        \t\tRAM Type: %s
+                        \t\tSize: %s
+                        \t\tWeight: %s
+                        \tStorage devise:
+                        \t\tDrive type: %s
+                        \t\tStorage capacity: %s
+                        \t\tWeight: %s
+                        \tScreen:
+                        \t\tDiagonal: %s
+                        \t\tScreen type: %s
+                        \t\tWeight: %s
+                        \tKeyboard:
+                        \t\tKeyboard type: %s
+                        \t\tIs backlight: %s
+                        \t\tWeight: %s""",
                 name, vendor, processor.getCpuFrequencyInMhz(), processor.getCountOfCores(), processor.getCpuVendor(),
                 processor.getWeightInGrams(), ramMemory.getRamType().name(), ramMemory.getRamAmountInMegabytes(),
                 ramMemory.getWeightInGrams(),
