@@ -3,7 +3,6 @@ public class CardAccount extends BankAccount {
 
     public double take(double amountToTake) {
         double preliminaryAmount = amount - amountToTake - (amountToTake * COMMISSION_PERCENT);
-
         if (preliminaryAmount >= 0) {
             amount = preliminaryAmount;
         }
