@@ -33,7 +33,7 @@ public class Elevator {
             if (currentFloor < floor) {
                 moveUp();
                 System.out.println(currentFloor);
-            } else if (currentFloor > floor) {
+            } else {
                 moveDown();
                 System.out.println(currentFloor);
             }
