@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         Bank bank = new Bank();
         ArrayList<Thread> threads = new ArrayList<>();
 
@@ -15,11 +15,11 @@ public class Main {
                 for (int j = 0; j < 100; j++) {
 
                     try {
-                        bank.transfer("Account # " + (int)(100 * Math.random()),
-                                "Account # " + (int)(100 * Math.random()),
-                                (int)(10000 * Math.random()));
-                        System.out.println(bank.getBalance("Account # " + (int)(100 * Math.random())));
-                        System.out.println(bank.getBalance("Account # " + (int)(100 * Math.random())));
+                        bank.transfer("Account # " + (int) (100 * Math.random()),
+                                "Account # " + (int) (100 * Math.random()),
+                                (int) (10000 * Math.random()));
+                        System.out.println(bank.getBalance("Account # " + (int) (100 * Math.random())));
+                        System.out.println(bank.getBalance("Account # " + (int) (100 * Math.random())));
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -29,7 +29,6 @@ public class Main {
         }
 
         threads.forEach(Thread::run);
-
         for (Thread thread : threads) {
             try {
                 thread.join();
@@ -38,7 +37,5 @@ public class Main {
             }
         }
         System.out.println("Всего денег в банке после транзакций: " + bank.getSumAllAccounts());
-
-
     }
 }

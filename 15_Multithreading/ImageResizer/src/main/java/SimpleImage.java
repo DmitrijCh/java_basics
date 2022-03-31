@@ -3,10 +3,10 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class SimpleImage implements Runnable {
-    private File file;
-    private int newWidth;
-    private String dstFolder;
-    private long start;
+    private final File file;
+    private final int newWidth;
+    private final String dstFolder;
+    private final long start;
 
     public SimpleImage(File file, int newWidth, String dstFolder, long start) {
         this.file = file;
@@ -20,7 +20,7 @@ public class SimpleImage implements Runnable {
         hardResizer();
     }
 
-    private void hardResizer(){
+    private void hardResizer() {
         try {
             BufferedImage image = ImageIO.read(file);
 
@@ -39,8 +39,7 @@ public class SimpleImage implements Runnable {
 
             File newFile = new File(dstFolder + "/" + file.getName());
             ImageIO.write(newImage, "jpg", newFile);
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         System.out.println("Finished after start: " + (System.currentTimeMillis() - start) + " ms.");

@@ -11,7 +11,7 @@ public class Bank {
     private final Random random = new Random();
 
     public synchronized boolean isFraud(String fromAccountNum, String toAccountNum, long amount)
-        throws InterruptedException {
+            throws InterruptedException {
         Thread.sleep(1000);
         return random.nextBoolean();
     }
@@ -39,12 +39,12 @@ public class Bank {
     }
 
     public long getBalance(String accountNum) {
-        return accounts.get(accountNum).getMoney() ;
+        return accounts.get(accountNum).getMoney();
     }
 
     public long getSumAllAccounts() {
         AtomicLong sumAllAccounts = new AtomicLong();
-        getAccounts().forEach((k,v) -> sumAllAccounts.addAndGet(v.getMoney()));
+        getAccounts().forEach((k, v) -> sumAllAccounts.addAndGet(v.getMoney()));
         return sumAllAccounts.get();
     }
 }
