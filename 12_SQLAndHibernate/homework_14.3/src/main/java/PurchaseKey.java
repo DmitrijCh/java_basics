@@ -4,20 +4,19 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
-public class PurchaseKey implements Serializable
-{
+public class PurchaseKey implements Serializable {
     @Column(name = "student_name", insertable = false, updatable = false)
     private String studentName;
 
     @Column(name = "course_name", insertable = false, updatable = false)
     private String courseName;
 
-    public PurchaseKey(String studentName, String courseName){
+    public PurchaseKey(String studentName, String courseName) {
         this.studentName = studentName;
         this.courseName = courseName;
     }
 
-    public PurchaseKey(){
+    public PurchaseKey() {
     }
 
     public String getStudentName() {

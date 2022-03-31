@@ -3,8 +3,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "subscriptions")
-public class Subscription
-{
+public class Subscription {
     @EmbeddedId
     private SubscriptionKey id;
 

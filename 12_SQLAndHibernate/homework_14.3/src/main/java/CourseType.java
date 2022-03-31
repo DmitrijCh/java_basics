@@ -1,5 +1,4 @@
-public enum CourseType
-{
+public enum CourseType {
     DESIGN,
     PROGRAMMING,
     MARKETING,

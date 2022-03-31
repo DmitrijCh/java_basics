@@ -1,14 +1,14 @@
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main
-{
+public class Main {
     public static void main(String[] args) {
         SessionBuilder sessionBuilder = new SessionBuilder();
         SessionFactory sessionFactory = sessionBuilder.getSessionFactory();
@@ -49,7 +49,7 @@ public class Main
 
     }
 
-    private static void linkedTableBuilder(Session session){
+    private static void linkedTableBuilder(Session session) {
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<PurchaseList> query = builder.createQuery(PurchaseList.class);
         Root<PurchaseList> root = query.from(PurchaseList.class);
@@ -60,7 +60,7 @@ public class Main
 
         listOfPurchases.forEach(onePurchase -> {
             String hqlStudent = "FROM " + Student.class.getSimpleName() + " WHERE name ='" + onePurchase.getPurchaseKey().getStudentName() + "'";
-            String hqlCourse = "FROM " + Course.class.getSimpleName() + " WHERE name='"+ onePurchase.getPurchaseKey().getCourseName() + "'";
+            String hqlCourse = "FROM " + Course.class.getSimpleName() + " WHERE name='" + onePurchase.getPurchaseKey().getCourseName() + "'";
 
             Student student = (Student) session.createQuery(hqlStudent).getSingleResult();
             Course course = (Course) session.createQuery(hqlCourse).getSingleResult();

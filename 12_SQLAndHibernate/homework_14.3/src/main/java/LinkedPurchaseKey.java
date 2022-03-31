@@ -13,11 +13,10 @@ public class LinkedPurchaseKey implements Serializable {
     private int courseId;
 
 
-    public LinkedPurchaseKey(){
-        //
+    public LinkedPurchaseKey() {
     }
 
-    public LinkedPurchaseKey(int studentId, int courseId){
+    public LinkedPurchaseKey(int studentId, int courseId) {
         this.studentId = studentId;
         this.courseId = courseId;
     }

@@ -4,20 +4,19 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
-public class SubscriptionKey implements Serializable
-{
+public class SubscriptionKey implements Serializable {
     @Column(name = "student_id", insertable = false, updatable = false)
     private int studentId;
 
     @Column(name = "course_id", insertable = false, updatable = false)
     private int courseId;
 
-    public SubscriptionKey(int studentId, int courseId){
+    public SubscriptionKey(int studentId, int courseId) {
         this.studentId = studentId;
         this.courseId = courseId;
     }
 
-    public SubscriptionKey(){
+    public SubscriptionKey() {
     }
 
     public int getStudentId() {
@@ -50,5 +49,4 @@ public class SubscriptionKey implements Serializable
     public int hashCode() {
         return Objects.hash(studentId, courseId);
     }
-
 }

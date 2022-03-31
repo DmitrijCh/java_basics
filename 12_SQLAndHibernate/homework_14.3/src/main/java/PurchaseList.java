@@ -6,8 +6,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "purchaselist")
-public class PurchaseList
-{
+public class PurchaseList {
     @EmbeddedId
     private PurchaseKey purchaseKey;
 

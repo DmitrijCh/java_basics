@@ -4,9 +4,8 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-public class SessionFactoryBuilder
-{
-    public SessionFactory getSessionFactory(){
+public class SessionFactoryBuilder {
+    public SessionFactory getSessionFactory() {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure("hibernate.cfg.xml")
                 .build();

@@ -1,11 +1,11 @@
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main
-{
+public class Main {
     public static void main(String[] args) {
 
         List<Course> courseList = new ArrayList<>();
@@ -17,15 +17,14 @@ public class Main
         BigInteger courseCount = (BigInteger) session.createSQLQuery("SELECT COUNT(*) FROM skillbox.courses").uniqueResult();
 
         int i = 1;
-        while( i <= courseCount.intValue()){
+        while (i <= courseCount.intValue()) {
             Course course = session.get(Course.class, i);
             courseList.add(course);
             i++;
         }
 
         sessionFactory.close();
-
-        for(Course oneCourse : courseList){
+        for (Course oneCourse : courseList) {
             System.out.println(oneCourse.getId() + " - " + oneCourse.getName() + " - " + oneCourse.getPrice() + " руб. - количество студентов: " + oneCourse.getStudentsCount());
         }
     }

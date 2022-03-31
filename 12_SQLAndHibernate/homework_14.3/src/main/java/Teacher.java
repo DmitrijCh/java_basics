@@ -3,8 +3,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "teachers")
-public class Teacher
-{
+public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
