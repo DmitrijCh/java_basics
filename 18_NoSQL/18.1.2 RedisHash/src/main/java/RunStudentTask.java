@@ -1,5 +1,4 @@
 public class RunStudentTask {
-
     public static void main(String[] args) {
         RedisStorage rs = new RedisStorage();
         rs.init();

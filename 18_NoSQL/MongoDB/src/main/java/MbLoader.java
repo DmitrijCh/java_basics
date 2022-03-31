@@ -1,10 +1,10 @@
-
 import com.mongodb.MongoClient;
 import com.mongodb.client.AggregateIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -13,11 +13,8 @@ import static com.mongodb.client.model.Filters.eq;
 
 public class MbLoader {
 
-
     private final MongoClient mongoClient = new MongoClient("127.0.0.1", 27017);
-
     private final MongoDatabase database = mongoClient.getDatabase("local");
-
     private final MongoCollection<Document> collectionShop = database.getCollection("shops");
     private final MongoCollection<Document> collectionProducts = database.getCollection("products");
 
@@ -25,7 +22,6 @@ public class MbLoader {
         database.drop();
         collectionShop.drop();
         collectionProducts.drop();
-
     }
 
     public void addShop(String shop) {
@@ -37,15 +33,15 @@ public class MbLoader {
     }
 
     public void addInShop(String shop, String product) {
-            Bson updateShop = collectionShop.find(eq("name", shop)).first();
-            Bson updateValue = new Document("products", product);
-            Bson updateOp = new Document("$addToSet", updateValue);
-            collectionShop.updateOne(updateShop, updateOp);
-            System.out.println("Выставлен товар " + "\"" + product + "\" в магазин " + "\""
-                    + shop + "\"");
+        Bson updateShop = collectionShop.find(eq("name", shop)).first();
+        Bson updateValue = new Document("products", product);
+        Bson updateOp = new Document("$addToSet", updateValue);
+        assert updateShop != null;
+        collectionShop.updateOne(updateShop, updateOp);
+        System.out.println("Выставлен товар " + "\"" + product + "\" в магазин " + "\""
+                + shop + "\"");
 
     }
-
 
     public void getStat() {
         getProductsCount();

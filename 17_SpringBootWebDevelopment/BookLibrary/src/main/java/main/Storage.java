@@ -13,8 +13,7 @@ public class Storage {
     private static final Map<Integer, Book> books = new HashMap<>();
 
     public static List<Book> getAllBooks() {
-        ArrayList<Book> books = new ArrayList<>(Storage.books.values());
-        return books;
+        return new ArrayList<Book>(books.values());
     }
 
     public static int addBook(Book book) {
