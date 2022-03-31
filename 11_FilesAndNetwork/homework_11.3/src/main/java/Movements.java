@@ -10,19 +10,19 @@ public class Movements {
 
     public Movements(String pathMovementsCsv) {
         loadMovementsFromFile(pathMovementsCsv);
-}
+    }
 
     private void loadMovementsFromFile(String pathMovementsCsv) {
         try {
             movements = new ArrayList<>();
             List<String> lines = Files.readAllLines(Paths.get(pathMovementsCsv));
-            for(int i = 1; i < lines.size(); i++){
+            for (int i = 1; i < lines.size(); i++) {
                 StringBuilder builder = new StringBuilder(lines.get(i));
                 boolean inQuotes = false;
 
                 for (int currentIndex = 0; currentIndex < builder.length(); currentIndex++) {
                     char currentChar = builder.charAt(currentIndex);
-                    if (currentChar == '\"'){
+                    if (currentChar == '\"') {
                         inQuotes = !inQuotes;
                     }
                     if (currentChar == ',' && inQuotes) {
@@ -34,19 +34,18 @@ public class Movements {
 
                 String[] fragments = line.split(",");
 
-                if(fragments.length != 8){
+                if (fragments.length != 8) {
                     throw new IOException("Wrong line " + line + " !!!");
-                }
-                else{
+                } else {
                     String type = fragments[0];
                     String number = fragments[1];
                     String currency = fragments[2];
                     Date dateOfTransaction = new SimpleDateFormat("dd.MM.yyyy").parse(fragments[3]);
                     String referenceOfTransaction = fragments[4];
 
-                    String description = fragments[5].split("    ")[1].trim(); // отсекаем все лишнее
+                    String description = fragments[5].split(" ")[1].trim(); // отсекаем все лишнее
                     double income = Double.parseDouble(fragments[6]);
-                    double expense  = Double.parseDouble(fragments[7]);
+                    double expense = Double.parseDouble(fragments[7]);
 
                     movements.add(new Transaction.Builder()
                             .withDescription(description)
@@ -59,6 +58,7 @@ public class Movements {
             ex.printStackTrace();
         }
     }
+
     public double getExpenseSum() {
         return movements.stream().mapToDouble(Transaction::getExpense).sum();
     }
@@ -67,11 +67,11 @@ public class Movements {
         return movements.stream().mapToDouble(Transaction::getIncome).sum();
     }
 
-    public void getExpensesByDescription(){
+    public void getExpensesByDescription() {
         Map<String, Double> map = movements.stream()
                 .collect(Collectors.groupingBy(Transaction::getDescription, Collectors.summingDouble(Transaction::getExpense)));
 
-        for(Map.Entry<String, Double> m : map.entrySet()){
+        for (Map.Entry<String, Double> m : map.entrySet()) {
             System.out.println("ИТОГО расход по категории: " + m.getKey() + " -> " + m.getValue() + " RUB");
         }
     }

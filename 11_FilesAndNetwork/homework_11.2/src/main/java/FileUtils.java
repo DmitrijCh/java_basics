@@ -21,7 +21,7 @@ public class FileUtils {
         Path source = Paths.get(sourceDirectory);
         Path target = Paths.get(destinationDirectory);
 
-        try{
+        try {
             Files.walk(source)
                     .forEach(p -> {
                         try {
@@ -31,23 +31,22 @@ public class FileUtils {
                             ex.printStackTrace();
                         }
                     });
-        }
-        catch (Exception exception){
+        } catch (Exception exception) {
             exception.printStackTrace();
         }
         System.out.println("Копирование прошло успешно!");
     }
 
-    private static void directoryCheck(String directory){
+    private static void directoryCheck(String directory) {
         File dir = new File(directory);
-        if(!dir.exists()){
+        if (!dir.exists()) {
             throw new IllegalArgumentException(WRONG_PATH_MESSAGE + ": " + directory);
         }
     }
 
-    private static void fileCheck(String directory){
+    private static void fileCheck(String directory) {
         File dir = new File(directory);
-        if(dir.isFile()){
+        if (dir.isFile()) {
             throw new IllegalArgumentException(FILE_NOT_DIRECTORY_MESSAGE + ": " + directory);
         }
     }

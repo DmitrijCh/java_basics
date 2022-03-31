@@ -10,7 +10,6 @@ public class Transaction {
     private double income;
     private double expense;
 
-
     public double getExpense() {
         return expense;
     }
@@ -23,54 +22,54 @@ public class Transaction {
         return description;
     }
 
-    public static class Builder{
-        private Transaction transaction;
+    public static class Builder {
+        private final Transaction transaction;
 
-        public Builder(){
+        public Builder() {
             transaction = new Transaction();
         }
 
-        public Builder withType(String type){
+        public Builder withType(String type) {
             transaction.type = type;
             return this;
         }
 
-        public Builder withNumber(String number){
+        public Builder withNumber(String number) {
             transaction.number = number;
             return this;
         }
 
-        public Builder withCurrency(String currency){
+        public Builder withCurrency(String currency) {
             transaction.currency = currency;
             return this;
         }
 
-        public Builder withDate(Date dateOfTransaction){
+        public Builder withDate(Date dateOfTransaction) {
             transaction.dateOfTransaction = dateOfTransaction;
             return this;
         }
 
-        public Builder withReferenceOfTransaction(String referenceOfTransaction){
+        public Builder withReferenceOfTransaction(String referenceOfTransaction) {
             transaction.referenceOfTransaction = referenceOfTransaction;
             return this;
         }
 
-        public Builder withDescription(String description){
+        public Builder withDescription(String description) {
             transaction.description = description;
             return this;
         }
 
-        public Builder withIncome(double income){
+        public Builder withIncome(double income) {
             transaction.income = income;
             return this;
         }
 
-        public Builder withExpense(double expense){
+        public Builder withExpense(double expense) {
             transaction.expense = expense;
             return this;
         }
 
-        public Transaction build(){
+        public Transaction build() {
             return transaction;
         }
     }

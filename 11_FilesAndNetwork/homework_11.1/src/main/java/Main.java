@@ -3,17 +3,17 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        while(true){
+        while (true) {
             System.out.println("Укажите путь до папки:");
             Scanner scanner = new Scanner(System.in);
             String path = scanner.nextLine();
-            if(path.equals("STOP")){
+            if (path.equals("STOP")) {
                 break;
             }
-            try{
+            try {
                 long directorySize = FileUtils.calculateFolderSize(path);
                 System.out.println(result(directorySize));
-            }catch (Exception ex){
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
         }
@@ -29,6 +29,5 @@ public class Main {
             }
         }
         return "0";
-
     }
 }
