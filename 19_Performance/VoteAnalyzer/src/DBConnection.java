@@ -3,7 +3,6 @@ import java.sql.*;
 public class DBConnection {
 
     private static Connection connection;
-
     private static String dbName = "localhost";
     private static String dbUser = "root";
     private static String dbPass = "password";
@@ -33,10 +32,9 @@ public class DBConnection {
 
     public static void executeMultiInsert(String name, String birthDay) {
         String birthDate = birthDay.replace('.', '-');
-        insertQuery.append((insertQuery.length() == 0 ? "" : ",") + "('" + name + "','" + birthDate + "',1)");
-        if(insertQuery.length() > 100000)
-        {
-            executeMultiInsert(name,birthDay);
+        insertQuery.append(insertQuery.length() == 0 ? "" : ",").append("('").append(name).append("','").append(birthDate).append("',1)");
+        if (insertQuery.length() > 100000) {
+            executeMultiInsert(name, birthDay);
             insertQuery = new StringBuilder();
         }
         String sql = "INSERT INTO voter_count(name, birthDate, `count`) " +
@@ -49,7 +47,6 @@ public class DBConnection {
         }
 
     }
-
 
     public static void printVoterCounts() throws SQLException {
         String sql = "SELECT name, birthDate, `count` FROM voter_count WHERE `count` > 1";

@@ -16,7 +16,6 @@ public class Loader {
 
     private static SimpleDateFormat birthDayFormat = new SimpleDateFormat("yyyy.MM.dd");
     private static SimpleDateFormat visitDateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
-
     private static HashMap<Integer, WorkTime> voteStationWorkTimes = new HashMap<>();
     private static HashMap<Voter, Integer> voterCounts = new HashMap<>();
 
@@ -49,7 +48,7 @@ public class Loader {
 
             String name = attributes.getNamedItem("name").getNodeValue();
             String birthDay = attributes.getNamedItem("birthDay").getNodeValue();
-            DBConnection.executeMultiInsert(name,birthDay);
+            DBConnection.executeMultiInsert(name, birthDay);
 
         }
 

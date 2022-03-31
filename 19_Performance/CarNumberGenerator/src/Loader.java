@@ -4,13 +4,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class Loader implements Runnable {
-
-    private int regionStart;
-    private int regionCount;
-    private String name;
+    private final int regionStart;
+    private final int regionCount;
+    private final String name;
     PrintWriter writer;
     StringBuilder str;
-    private char letters[] = {'У', 'К', 'Е', 'Н', 'Х', 'В', 'А', 'Р', 'О', 'С', 'М', 'Т'};
+    private final char[] letters = {'У', 'К', 'Е', 'Н', 'Х', 'В', 'А', 'Р', 'О', 'С', 'М', 'Т'};
 
     public Loader(int regionStart, int regionCount, String name) {
         this.regionStart = regionStart;
@@ -57,7 +56,6 @@ public class Loader implements Runnable {
         for (int i = 0; i < padSize; i++) {
             numberStr = '0' + numberStr;
         }
-
         return numberStr;
     }
 }
