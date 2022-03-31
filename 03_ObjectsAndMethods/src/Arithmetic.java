@@ -1,10 +1,6 @@
 public class Arithmetic {
-    private int first;
-    private int second;
 
     public Arithmetic(int f, int s) {
-        first = f;
-        second = s;
     }
 
     public int amount(int f, int s) {
